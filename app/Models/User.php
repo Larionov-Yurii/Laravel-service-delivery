@@ -1,4 +1,7 @@
 <?php
+/**
+ * Represents the user entity, including the ability to receive notifications via email and SMS.
+ */
 
 namespace App\Models;
 
@@ -43,5 +46,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function routeNotificationForNexmo()
+    {
+        return $this->phone_number;
     }
 }
